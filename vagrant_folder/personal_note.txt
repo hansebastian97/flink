@@ -1,0 +1,21 @@
+# Create table
+docker exec -it -u postgres postgres psql -c 'create database test;'
+
+# Connect to postgres
+psql -U postgres
+
+# Show database
+\l
+
+# Change / use database
+\c flink
+
+# Show tables
+\dt
+
+# Create table
+create table if not exists transaction_agg (
+	merchant VARCHAR(255),
+	total_amt FLOAT,
+	PRIMARY KEY (merchant)
+);
